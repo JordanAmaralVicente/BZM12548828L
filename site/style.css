@@ -83,6 +83,22 @@ header p { margin: 0; color: var(--ink-2); }
 .stores .key { width: 12px; height: 3px; border-radius: 2px; }
 .stores .st { font-size: 12px; color: var(--muted); }
 
+.deals { margin: 24px 0 8px; }
+.deals h2 { font-size: 18px; margin: 0; }
+.deals .sub { margin: 2px 0 12px; color: var(--ink-2); font-size: 14px; }
+.deal-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.deal { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; min-width: 0; }
+.deal.top { border: 2px solid var(--good); }
+.deal .tag { font-size: 12px; font-weight: 700; color: var(--good-ink); letter-spacing: 0.03em; text-transform: uppercase; }
+.deal h3 { font-size: 15px; margin: 2px 0 10px; }
+.deal .line { display: grid; grid-template-columns: 16px 1fr auto; gap: 4px 8px; align-items: baseline; font-size: 14px; padding: 4px 0; }
+.deal .op { color: var(--muted); font-weight: 700; }
+.deal .what { min-width: 0; }
+.deal .what span { color: var(--ink-2); }
+.deal .val { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.deal .total { border-top: 1px solid var(--grid); margin-top: 6px; padding-top: 8px; }
+.deal .total .val { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.deal .alt { margin: 8px 0 0; font-size: 13px; color: var(--ink-2); }
 .filters { display: flex; gap: 6px; flex-wrap: wrap; margin: 20px 0 16px; }
 .filters button {
   font: inherit; font-size: 14px; padding: 6px 14px; cursor: pointer;

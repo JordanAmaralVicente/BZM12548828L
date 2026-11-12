@@ -152,12 +152,50 @@
     charts.push(chart);
   }
 
+  function renderDeals() {
+    const deals = DATA.deals || [];
+    const box = document.getElementById("deal-grid");
+    document.getElementById("deals").hidden = !deals.length;
+    const storeLink = (it) => el("a", { href: it.url, target: "_blank", rel: "noopener",
+      text: DATA.stores[it.store]?.name || it.store });
+    const line = (op, it, label) => el("div", { class: "line" },
+      el("span", { class: "op", text: op }),
+      el("span", { class: "what" }, el("span", { text: `${label} na ` }), storeLink(it)),
+      el("span", { class: "val", text: brl(it.price) }));
+    box.replaceChildren(...deals.map((d, i) => {
+      const b = d.best;
+      const card = el("article", { class: "deal" + (i === 0 ? " top" : "") });
+      if (i === 0) card.append(el("div", { class: "tag", text: "Mais barato" }));
+      card.append(el("h3", { text: `${d.name} + GTA VI` }));
+      if (b.type === "separado") {
+        const [c, g] = b.items;
+        card.append(line("", c, "PS5"), line("+", g, "GTA VI"));
+      } else {
+        card.append(line("", b.items[0], "Combo"));
+      }
+      card.append(el("div", { class: "line total" }, el("span", { class: "op", text: "=" }),
+        el("span", { class: "what", text: b.type === "combo" ? "Total (combo)" : "Total separado" }),
+        el("span", { class: "val", text: brl(b.total) })));
+      if (d.alt) {
+        const diff = brl(d.alt.total - b.total);
+        const alt = d.alt.type === "combo"
+          ? el("p", { class: "alt" }, "O combo na ", storeLink(d.alt.items[0]), ` sai ${brl(d.alt.total)} (${diff} a mais).`)
+          : el("p", { class: "alt", text: `Comprando separado sai ${brl(d.alt.total)} (${diff} a mais).` });
+        card.append(alt);
+      } else if (b.type === "separado") {
+        card.append(el("p", { class: "alt", text: "Nenhuma loja vende este combo agora." }));
+      }
+      return card;
+    }));
+  }
+
   function render() {
     charts.splice(0).forEach((c) => c.destroy());
     const grid = document.getElementById("grid");
     grid.replaceChildren(...DATA.products.map(renderCard));
     applyFilter();
     renderStores();
+    renderDeals();
   }
 
   let group = "all";

@@ -62,6 +62,37 @@ async def collect(store_ids: list[str]) -> tuple[list[dict], list[dict]]:
     return prices, runs
 
 
+def best_deals(current: dict[str, list[dict]]) -> list[dict]:
+    """Para cada modelo de PS5: o jeito mais barato de levar console + GTA VI agora.
+
+    Compara comprar separado (console na loja X + jogo na loja Y) com o combo.
+    `current` é {produto: [ofertas da última coleta, já ordenadas por preço]}.
+    """
+    def cheapest(pid: str) -> dict | None:
+        offers = current.get(pid) or []
+        return {**offers[0], "product": pid, "name": PRODUCTS[pid]["name"]} if offers else None
+
+    game = cheapest("gta6-padrao")
+    deals = []
+    for kind in ("digital", "disco", "pro"):
+        console, combo = cheapest(f"ps5-{kind}"), cheapest(f"combo-{kind}")
+        options = []
+        if console and game:
+            options.append({"type": "separado", "total": round(console["price"] + game["price"], 2),
+                            "items": [console, game]})
+        if combo:
+            options.append({"type": "combo", "total": combo["price"], "items": [combo]})
+        if not options:
+            continue
+        options.sort(key=lambda o: o["total"])
+        deals.append({
+            "kind": kind, "name": PRODUCTS[f"ps5-{kind}"]["name"], "best": options[0],
+            "alt": options[1] if len(options) > 1 else None,
+        })
+    deals.sort(key=lambda d: d["best"]["total"])
+    return deals
+
+
 def build_site() -> dict[str, dict]:
     rows = load_prices()
     runs = load_runs()
@@ -87,6 +118,8 @@ def build_site() -> dict[str, dict]:
             "stores": by_store, "current": current,
         })
 
+    deals = best_deals({p["id"]: p["current"] for p in products})
+
     store_status = {}
     for sid, st in STORES.items():
         mine = [r for r in runs if r["store"] == sid]
@@ -100,7 +133,7 @@ def build_site() -> dict[str, dict]:
     SITE_DATA.write_text(json.dumps({
         "generated": datetime.now(BRT).replace(microsecond=0).isoformat(),
         "last_run": runs[-1]["ts"] if runs else None,
-        "products": products, "stores": store_status,
+        "products": products, "stores": store_status, "deals": deals,
     }, ensure_ascii=False, separators=(",", ":")))
     return signals
 
