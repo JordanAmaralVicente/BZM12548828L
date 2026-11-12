@@ -1,0 +1,30 @@
+{
+  "ps5-digital": {
+    "signal": "COLETANDO",
+    "min": 4169.0
+  },
+  "combo-digital": {
+    "signal": "COLETANDO",
+    "min": 4908.9
+  },
+  "ps5-disco": {
+    "signal": "COLETANDO",
+    "min": 4749.05
+  },
+  "ps5-pro": {
+    "signal": "COLETANDO",
+    "min": 7399.0
+  },
+  "combo-disco": {
+    "signal": "COLETANDO",
+    "min": 5650.91
+  },
+  "gta6-padrao": {
+    "signal": "COLETANDO",
+    "min": 404.99
+  },
+  "gta6-ultimate": {
+    "signal": "COLETANDO",
+    "min": 549.9
+  }
+}

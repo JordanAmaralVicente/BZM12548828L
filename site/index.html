@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preços PS5 e GTA VI</title>
+  <meta name="description" content="Histórico de preços do PS5, GTA VI e combos nas principais lojas, com sinal de compra.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Preços PS5 &amp; GTA VI</h1>
+      <p id="updated">Carregando…</p>
+      <ul class="stores" id="stores" aria-label="Lojas acompanhadas"></ul>
+    </header>
+
+    <nav class="filters" id="filters" aria-label="Filtrar produtos">
+      <button data-g="all" aria-pressed="true">Todos</button>
+      <button data-g="Console" aria-pressed="false">Consoles</button>
+      <button data-g="Jogo" aria-pressed="false">GTA VI</button>
+      <button data-g="Combo" aria-pressed="false">Combos</button>
+    </nav>
+
+    <main class="grid" id="grid"></main>
+
+    <section class="how">
+      <h3>Como funciona o sinal</h3>
+      <p>Para cada produto, usamos o <b>menor preço entre todas as lojas</b> em cada coleta (2× ao dia).</p>
+      <ul>
+        <li><b>COMPRA</b>: menor preço já registrado, até 3% acima do mínimo histórico, ou 8%+ abaixo da média de 30 dias.</li>
+        <li><b>AGUARDE</b>: 3%+ acima da média de 30 dias, preço caindo nos últimos dias, ou Black Friday a menos de 15 dias.</li>
+        <li><b>NEUTRO</b>: preço dentro do normal; compre se precisar agora.</li>
+        <li><b>COLETANDO</b>: menos de 3 dias de histórico, ainda sem base para comparar.</li>
+      </ul>
+      <p>Preços considerados à vista (Pix quando a loja informa). Anúncios usados, importados, de outras plataformas e acessórios são descartados. O preço digital do GTA VI vem da PlayStation Store.</p>
+    </section>
+    <footer>Dados coletados automaticamente; confira sempre o preço final na loja antes de comprar.</footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
