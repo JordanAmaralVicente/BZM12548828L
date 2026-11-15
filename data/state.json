@@ -1,30 +1,30 @@
 {
   "ps5-digital": {
-    "signal": "COLETANDO",
+    "signal": "AGUARDE",
     "min": 4036.55
   },
   "combo-digital": {
-    "signal": "COLETANDO",
+    "signal": "COMPRA",
     "min": 4908.9
   },
   "ps5-disco": {
-    "signal": "COLETANDO",
+    "signal": "COMPRA",
     "min": 4749.05
   },
   "ps5-pro": {
-    "signal": "COLETANDO",
+    "signal": "COMPRA",
     "min": 7399.0
   },
   "combo-disco": {
-    "signal": "COLETANDO",
+    "signal": "COMPRA",
     "min": 5549.8
   },
   "gta6-padrao": {
-    "signal": "COLETANDO",
+    "signal": "COMPRA",
     "min": 400.4
   },
   "gta6-ultimate": {
-    "signal": "COLETANDO",
+    "signal": "COMPRA",
     "min": 549.9
   }
 }
