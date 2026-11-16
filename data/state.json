@@ -8,7 +8,7 @@
     "min": 4908.9
   },
   "ps5-disco": {
-    "signal": "COMPRA",
+    "signal": "AGUARDE",
     "min": 4559.05
   },
   "ps5-pro": {
@@ -20,7 +20,7 @@
     "min": 5549.8
   },
   "gta6-padrao": {
-    "signal": "COMPRA",
+    "signal": "AGUARDE",
     "min": 400.4
   },
   "gta6-ultimate": {
