@@ -5,7 +5,7 @@
   },
   "combo-digital": {
     "signal": "COMPRA",
-    "min": 4806.52
+    "min": 4749.8
   },
   "ps5-disco": {
     "signal": "AGUARDE",
@@ -16,8 +16,8 @@
     "min": 7399.0
   },
   "combo-disco": {
-    "signal": "AGUARDE",
-    "min": 4949.8
+    "signal": "COMPRA",
+    "min": 4948.9
   },
   "gta6-padrao": {
     "signal": "AGUARDE",
