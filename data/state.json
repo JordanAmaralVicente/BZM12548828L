@@ -1,6 +1,6 @@
 {
   "ps5-digital": {
-    "signal": "AGUARDE",
+    "signal": "NEUTRO",
     "min": 3960.55
   },
   "combo-digital": {
@@ -8,7 +8,7 @@
     "min": 4749.8
   },
   "ps5-disco": {
-    "signal": "AGUARDE",
+    "signal": "NEUTRO",
     "min": 4274.9
   },
   "ps5-pro": {
@@ -20,7 +20,7 @@
     "min": 4948.9
   },
   "gta6-padrao": {
-    "signal": "AGUARDE",
+    "signal": "NEUTRO",
     "min": 400.4
   },
   "gta6-ultimate": {
